@@ -1,11 +1,11 @@
-#include <stdio.h> //Biblioteca de comunicação com usuário.
-#include <stdlib.h> //Biblioteca de alocação de espaço de memória.
-#include <locale.h> //Biblioteca de alocações de texto por região.
-#include <string.h> //Biblioteca responsável por cuidar das strings.
+#include <stdio.h> //Biblioteca de comunicaÃ§Ã£o com usuÃ¡rio.
+#include <stdlib.h> //Biblioteca de alocaÃ§Ã£o de espaÃ§o de memÃ³ria.
+#include <locale.h> //Biblioteca de alocaÃ§Ãµes de texto por regiÃ£o.
+#include <string.h> //Biblioteca responsÃ¡vel por cuidar das strings.
 
-int registro(){ //Função para cadastrar usuarios no sistema.
+int registro(){ //FunÃ§Ã£o para cadastrar usuarios no sistema.
 	
-	//criação das variaveis string.
+	//criaÃ§Ã£o das variaveis string.
 	char arquivo[40];
 	char cpf[40];
 	char nome[40];
@@ -59,7 +59,7 @@ int registro(){ //Função para cadastrar usuarios no sistema.
 
 }
 
-int consulta(){ //Função para consultar os dados do sistema.
+int consulta(){ //FunÃ§Ã£o para consultar os dados do sistema.
 	
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -72,12 +72,12 @@ int consulta(){ //Função para consultar os dados do sistema.
 	FILE *file;
 	file = fopen(cpf, "r"); //"r" = Ler o arquivo cpf.
 
-	if(file == NULL){ //Validação para arquivos não encotrados.
-		printf("Arquivo não existe.");
+	if(file == NULL){ //ValidaÃ§Ã£o para arquivos nÃ£o encotrados.
+		printf("Arquivo nÃ£o existe.");
 	}
 	
 	while(fgets(conteudo, 200, file) != NULL){
-		printf("\nEssas são as informações do usuário: ");
+		printf("\nEssas sÃ£o as informaÃ§Ãµes do usuÃ¡rio: ");
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
@@ -85,7 +85,7 @@ int consulta(){ //Função para consultar os dados do sistema.
 	system("pause");
 }
 
-int deletar(){ //Função para deletar usuários.
+int deletar(){ //FunÃ§Ã£o para deletar usuÃ¡rios.
 	char cpf[40];
 	
 	printf("Digite o CPF a ser deletado: ");
@@ -96,8 +96,8 @@ int deletar(){ //Função para deletar usuários.
 	FILE *file;
 	file = fopen(cpf, "r");
 	
-	if (file == NULL){ //Validação para CPF's inexistentes.
-		printf("CPF não encontrado! \n");
+	if (file == NULL){ //ValidaÃ§Ã£o para CPF's inexistentes.
+		printf("CPF nÃ£o encontrado! \n");
 		system("pause");
 	}
 	
@@ -114,13 +114,12 @@ int main()
 		
 		setlocale(LC_ALL, "Portuguese");
 		//Inicio Menu	
-		printf("### Cartório da EBAC ###\n\n");                                   
-		printf("Escolha a opção desejada do menu:\n\n");
+		printf("### CartÃ³rio da EBAC ###\n\n");                                   
+		printf("Escolha a opÃ§Ã£o desejada do menu:\n\n");
 		printf("\t1- Registrar Nomes\n");
 		printf("\t2- Consultar Nomes\n");
-		printf("\t3- Deletar Nomes\n");
-		printf("\t4- Sair\n\n");
-		printf("Opção:");
+		printf("\t3- Deletar Nomes\n\n");
+		printf("OpÃ§Ã£o:");
 		//Fim Menu
 		
 		scanf("%d", &opcao); // "%d" armazena um valor do tipo inteiro
@@ -129,24 +128,19 @@ int main()
 		
 		switch(opcao){
 			case 1:
-			registro(); //Chamada de funções.
+			registro(); //Chamada de funÃ§Ãµes.
 			break;
 			
 			case 2:
-			consulta(); //Chamada de funções.
+			consulta(); //Chamada de funÃ§Ãµes.
 			break;
 			
 			case 3:
-			deletar(); //Chamada de funções.
+			deletar(); //Chamada de funÃ§Ãµes.
 			break;
 			
-			case 4:
-			printf("Obrigado por utilizar o sistema.\n");
-			return 0;
-			break;
-			
-			default: //Validação para números fora do menu.
-			printf("Erro: Escolha uma das opções apresentadas!\n");
+			default: //ValidaÃ§Ã£o para nÃºmeros fora do menu.
+			printf("Erro: Escolha uma das opÃ§Ãµes apresentadas!\n");
 			system("pause");
 			break;
 		}
